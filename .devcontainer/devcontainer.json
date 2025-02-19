@@ -15,11 +15,22 @@
 		"ghcr.io/devcontainers-extra/features/rclone:1": {}
 	},
 
+
+
+	// "mounts": ["source=${localWorkspaceFolder}/../data,target=/mnt/xxx,type=bind"],
+
+	"mounts": ["source=${localWorkspaceFolder}/../data,target=/mnt/xxx,type=bind"],
+	
+
+
+
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
+
+
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip3 install --user -r requirements.txt && mkdir ~/.config/rclone && cp rclone.conf ~/.config/rclone/rclone.conf",
