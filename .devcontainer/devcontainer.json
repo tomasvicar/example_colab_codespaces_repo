@@ -3,7 +3,11 @@
 {
 	"name": "Python 3",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+	"image": "pytorch/pytorch:latest",
+
+	"runArgs": ["--gpus=all"],
+	
+
 
 	// "build": { 
 	// 	"context": "..",
@@ -11,15 +15,15 @@
 	// },
 
 
-	"features": {
-		"ghcr.io/devcontainers-extra/features/rclone:1": {}
-	},
+	// "features": {
+	// 	"ghcr.io/devcontainers-extra/features/rclone:1": {}
+	// },
 
 
 
 	// "mounts": ["source=${localWorkspaceFolder}/../data,target=/mnt/xxx,type=bind"],
 
-	"mounts": ["source=${localWorkspaceFolder}/../data,target=/mnt/xxx,type=bind"],
+	// "mounts": ["source=${localWorkspaceFolder}/../data,target=/mnt/xxx,type=bind"],
 	
 
 
@@ -33,7 +37,7 @@
 
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --user -r requirements.txt && mkdir ~/.config/rclone && cp rclone.conf ~/.config/rclone/rclone.conf",
+	"postCreateCommand": "apt-get update && apt-get install -y git python3-pyqt5 libqt5widgets5 x11-apps && pip3 install --user -r requirements.txt",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -43,7 +47,14 @@
 				"ms-toolsai.jupyter",
 				"github.copilot"
 			]
+		},
+		"settings": {
+			"terminal.integrated.defaultProfile.linux": "bash",
+			"python.defaultInterpreterPath": "/opt/conda/bin/python",
+            "python.condaPath": "/opt/conda/bin/conda",
+            "python.condaActivateEnvironment": "base"
 		}
+	
 	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
