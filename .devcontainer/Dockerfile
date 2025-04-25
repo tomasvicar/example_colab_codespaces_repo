@@ -50,6 +50,6 @@ ENV USERTMP=vscode
 ENV XDG_RUNTIME_DIR=/tmp/$UIDTMP-runtime
 RUN mkdir -p $XDG_RUNTIME_DIR && chmod 700 $XDG_RUNTIME_DIR
 
-COPY start_xpra.sh /home/vscode/start_xpra.sh
-RUN chmod +x /home/vscode/start_xpra.sh
-RUN echo 'source ~/start_xpra.sh' >> /home/vscode/.bashrc
+COPY start_xpra.sh /home/$USERTMP/start_xpra.sh
+RUN chmod +x /home/$USERTMP/start_xpra.sh
+RUN echo 'source ~/start_xpra.sh' >> /home/$USERTMP/.bashrc
