@@ -1,6 +1,10 @@
 import matplotlib
-# matplotlib.use('TkAgg')  # or 'QtAgg'
-matplotlib.use('Qt5Agg') # pip install matplotlib PyQt5
+import os
+
+
+# print(os.environ['DISPLAY'])
+# print(os.environ['XDG_RUNTIME_DIR'])
+# matplotlib.use('Qt5Agg')
 
 import matplotlib.pyplot as plt
 import numpy as np
