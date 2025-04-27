@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# --- Ensure xstartup is executable ---
-# echo "[*] Making ~/.vnc/xstartup executable..."
-# chmod +x ~/.vnc/xstartup
-
 # --- Clean up old VNC locks if they exist ---
 echo "[*] Cleaning up old VNC locks..."
 rm -f /tmp/.X11-unix/X1

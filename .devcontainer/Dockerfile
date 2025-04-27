@@ -48,15 +48,14 @@ RUN apt-get update && apt-get install -y \
 ENV USERTMP=vscode
 
 # --- Setup VNC xstartup script ---
-RUN mkdir -p /home/$USERTMP/.vnc
+RUN mkdir -p /home/$USERTMP/.vnc && \
+    chown -R $USERTMP:$USERTMP /home/$USERTMP/.vnc
+
 COPY xstartup /home/$USERTMP/.vnc/
-RUN chmod +x /home/$USERTMP/.vnc/xstartup
+RUN chmod +x /home/$USERTMP/.vnc/xstartup && \
+    chown $USERTMP:$USERTMP /home/$USERTMP/.vnc/xstartup
 
-
-# --- Startup script ---
-# COPY start_vnc.sh /start_vnc.sh
-# RUN chmod +x /start_vnc.sh
-
+RUN echo 'export DISPLAY=:1' >> /home/$USERTMP/.bashrc
 
 COPY requirements.txt .
 RUN python3 -m pip install --no-cache-dir -r requirements.txt

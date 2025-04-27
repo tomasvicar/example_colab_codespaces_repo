@@ -1,6 +1,3 @@
-import matplotlib
-matplotlib.use('TkAgg')  # or 'QtAgg'
-# matplotlib.use('QtAgg') # pip install matplotlib PyQt5
 
 import matplotlib.pyplot as plt
 import numpy as np
